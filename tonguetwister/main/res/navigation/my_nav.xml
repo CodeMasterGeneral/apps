@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/mainActivity">
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="vasu.debug.tonguetwister1.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <activity
+        android:id="@+id/userDashboard"
+        android:name="vasu.debug.tonguetwister1.UserDashboard"
+        android:label="activity_user_dashboard"
+        tools:layout="@layout/activity_user_dashboard" />
+    <activity
+        android:id="@+id/sellerDashboard"
+        android:name="vasu.debug.tonguetwister1.SellerDashboard"
+        android:label="activity_seller_dashboard"
+        tools:layout="@layout/activity_seller_dashboard" />
+    <activity
+        android:id="@+id/cartActivity"
+        android:name="vasu.debug.tonguetwister1.CartActivity"
+        android:label="activity_cart"
+        tools:layout="@layout/activity_cart" />
+    <activity
+        android:id="@+id/editMenu"
+        android:name="vasu.debug.tonguetwister1.EditMenu"
+        android:label="activity_edit_menu"
+        tools:layout="@layout/activity_edit_menu" />
+    <activity
+        android:id="@+id/manageOtp"
+        android:name="vasu.debug.tonguetwister1.ManageOtp"
+        android:label="activity_manage_otp"
+        tools:layout="@layout/activity_manage_otp" />
+    <fragment
+        android:id="@+id/bestsellersFragment"
+        android:name="vasu.debug.tonguetwister1.BestsellersFragment"
+        android:label="fragment_bestsellers"
+        tools:layout="@layout/fragment_bestsellers" />
+    <fragment
+        android:id="@+id/offersFragment"
+        android:name="vasu.debug.tonguetwister1.OffersFragment"
+        android:label="fragment_offers"
+        tools:layout="@layout/fragment_offers" />
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="vasu.debug.tonguetwister1.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" />
+    <activity
+        android:id="@+id/defaultActivity"
+        android:name="vasu.debug.tonguetwister1.DefaultActivity"
+        android:label="activity_default"
+        tools:layout="@layout/activity_default" />
+    <fragment
+        android:id="@+id/defaultTabFragment"
+        android:name="vasu.debug.tonguetwister1.DefaultTabFragment"
+        android:label="fragment_default_tab"
+        tools:layout="@layout/fragment_default_tab" />
+    <fragment
+        android:id="@+id/sellerListMenuFragment"
+        android:name="vasu.debug.tonguetwister1.SellerListMenuFragment"
+        android:label="fragment_seller_list_menu"
+        tools:layout="@layout/fragment_seller_list_menu" />
+    <fragment
+        android:id="@+id/sellerOrdersFrag"
+        android:name="vasu.debug.tonguetwister1.SellerOrdersFrag"
+        android:label="fragment_seller_orders"
+        tools:layout="@layout/fragment_seller_orders" />
+    <activity
+        android:id="@+id/fireBaseDataTransferActivity"
+        android:name="vasu.debug.tonguetwister1.FireBaseDataTransferActivity"
+        android:label="activity_fire_base_data_transfer"
+        tools:layout="@layout/activity_fire_base_data_transfer" />
+    <fragment
+        android:id="@+id/quantityUpdateFragment"
+        android:name="vasu.debug.tonguetwister1.QuantityUpdateFragment"
+        android:label="fragment_quantity_update_list"
+        tools:layout="@layout/fragment_quantity_update_list" />
+    <activity
+        android:id="@+id/paymentActivity"
+        android:name="vasu.debug.tonguetwister1.PaymentActivity"
+        android:label="activity_payment"
+        tools:layout="@layout/activity_payment" />
+    <activity
+        android:id="@+id/paymentAcknowledgement"
+        android:name="vasu.debug.tonguetwister1.PaymentAcknowledgement"
+        android:label="activity_payment_acknowledgement"
+        tools:layout="@layout/activity_payment_acknowledgement" />
+    <activity
+        android:id="@+id/sellerSettings"
+        android:name="vasu.debug.tonguetwister1.SellerSettings"
+        android:label="activity_seller_settings"
+        tools:layout="@layout/activity_seller_settings" />
+    <activity
+        android:id="@+id/userSettings"
+        android:name="vasu.debug.tonguetwister1.UserSettings"
+        android:label="activity_user_settings"
+        tools:layout="@layout/activity_user_settings" />
+</navigation>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/my_cart_inOptionsMenu"
+        android:icon="@drawable/ic_cart"
+        android:title="my order"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/order_history_inOptionsMenu"
+        android:icon="@drawable/ic_baseline_receipt_long_24"
+        android:title="history"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/about_inOptionsMenu"
+        android:title="about"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/seller_dashboard_inOptionsMenu"
+        android:title="Seller Dashboard"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/user_dashboard_inOptionsMenu"
+        android:title="User Dashboard"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/settings_inOptionsMenu"
+        android:title="settings"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/logout_btn_inOptionMenu"
+        android:title="logout"
+        app:showAsAction="never"/>
+</menu>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primaryRED">#CC463C</color>
+    <color name="secondaryRED">#AA2A21</color>
+    <color name="snackbar_green">#00BC02</color>
+
+</resources>

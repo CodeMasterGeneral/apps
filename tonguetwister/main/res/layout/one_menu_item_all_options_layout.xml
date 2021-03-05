@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/menu_item_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="4dp"
+    android:background="#FFFFFF"
+    android:backgroundTintMode="screen"
+    android:paddingBottom="10dp">
+
+    <TextView
+        android:id="@+id/menu_item_id"
+        android:layout_width="236dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="menu item name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/item_pic_imageView_inMenuList"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/item_pic_imageView_inMenuList"
+        android:layout_width="94dp"
+        android:layout_height="94dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/price_per_unit_inMenuList"
+        android:layout_width="145dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="6dp"
+        android:text="price: Rs 50/unit"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/item_pic_imageView_inMenuList"
+        app:layout_constraintTop_toBottomOf="@+id/menu_item_id" />
+
+    <TextView
+        android:id="@+id/menu_item_category_inMenuList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="6dp"
+        android:text="In Desserts"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/item_pic_imageView_inMenuList"
+        app:layout_constraintTop_toBottomOf="@+id/price_per_unit_inMenuList" />
+
+    <Button
+        android:id="@+id/btn_add_item_inMenuList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="44dp"
+        android:padding="4dp"
+        android:paddingStart="4dp"
+        android:paddingLeft="4dp"
+        android:paddingEnd="4dp"
+        android:paddingRight="4dp"
+        android:text="add"
+        android:textSize="14sp"
+        app:icon="@drawable/ic_add"
+        app:iconGravity="textEnd"
+        app:iconPadding="4sp"
+        app:iconSize="22sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu_item_id" />
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:singleSelection="true">
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="12dp"
+            app:backgroundTint="@color/white"
+            app:icon="@drawable/ic_remove"
+            app:iconPadding="0dp"
+            app:iconSize="14sp"
+            app:iconTint="#FF0101" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:text="22"
+            android:textColor="#050505"
+            app:backgroundTint="@color/white"
+            app:iconPadding="0dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="4dp"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="@color/white"
+            app:icon="@drawable/ic_add"
+            app:iconPadding="0dp"
+            app:iconSize="14sp"
+            app:iconTint="#EF0000" />
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddNewMenuItem" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/addNewMenuItem_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                app:subtitleTextColor="#FFFFFF"
+                app:titleTextColor="#FFFFFF" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:paddingTop="20dp">
+
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Item Name :" />
+
+                <EditText
+                    android:id="@+id/menu_item_name_toAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginEnd="9dp"
+                    android:hint="enter item name"
+                    android:inputType="textShortMessage|text" />
+
+                <TextView
+                    android:id="@+id/text_hycp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"
+                    android:text="how you calculate prices: " />
+
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/tglGrp_serve_type_selection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="4dp"
+                    android:padding="10dp"
+                    app:singleSelection="true"
+                    app:selectionRequired="true">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_qty_perUnit"
+                        style="?attr/materialButtonOutlinedStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="loadPerUnitLayout"
+                        android:text="per unit"
+                        android:textSize="12sp"
+                        app:backgroundTint="#D6D6D6" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_qty_perGrams"
+                        style="?attr/materialButtonOutlinedStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="loadPerKilogramLayout"
+                        android:text="KG [in grams]"
+                        android:textSize="12sp"
+                        app:backgroundTint="#D6D6D6" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_qty_portionSize"
+                        style="?attr/materialButtonOutlinedStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="loadPerPortionsLayout"
+                        android:text="portion"
+                        android:textSize="12sp"
+                        app:backgroundTint="#D6D6D6" />
+
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                <RelativeLayout
+                    android:id="@+id/per_unit_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center_horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tglGrp_serve_type_selection">
+
+                    <TextView
+                        android:id="@+id/unit_grp_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="per unit price : "
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/et_price_per_unit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/unit_grp_tv"
+                        android:ems="10"
+                        android:hint="price"
+                        android:inputType="number"
+                        android:paddingLeft="10dp" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/per_kg_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="249dp">
+
+                    <TextView
+                        android:id="@+id/per_kg_layout_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Note : 1000 grams in 1 kilogram" />
+
+                    <com.google.android.material.button.MaterialButtonToggleGroup
+                        android:id="@+id/tglGrp_gram_kilogram"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:layout_below="@id/per_kg_layout_info"
+                        android:padding="10dp"
+                        app:singleSelection="true">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/choice_gram"
+                            style="?attr/materialButtonOutlinedStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checkable="true"
+                            android:text="Grams"
+                            android:textSize="12sp"
+                            app:backgroundTint="#D6D6D6" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/choice_kilogram"
+                            style="?attr/materialButtonOutlinedStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="KiloGram"
+                            android:textSize="12sp"
+                            app:backgroundTint="#D6D6D6" />
+
+                    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                    <View
+                        android:id="@+id/strut1"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_below="@id/tglGrp_gram_kilogram"
+                        android:layout_centerHorizontal="true" />
+
+                    <TextView
+                        android:id="@+id/weight_tv_inkgLAyout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_below="@id/tglGrp_gram_kilogram"
+                        android:layout_alignRight="@id/strut1"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:padding="4dp"
+                        android:text="weight"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:id="@+id/price_tv_inKgLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tglGrp_gram_kilogram"
+                        android:layout_alignLeft="@id/strut1"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:padding="4dp"
+                        android:text="Price"
+                        android:textAlignment="center" />
+
+                    <EditText
+                        android:id="@+id/enter_weight_inPerKgLayout1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/weight_tv_inkgLAyout"
+                        android:layout_alignRight="@id/strut1"
+                        android:layout_alignParentLeft="true"
+                        android:ems="5"
+                        android:hint="@string/weight_of_serving"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/enter_price_inPerKgLayout1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/weight_tv_inkgLAyout"
+                        android:layout_alignLeft="@id/strut1"
+                        android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@id/enter_weight_inPerKgLayout1"
+                        android:ems="5"
+                        android:hint="@string/price_at_this_weight"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/enter_weight_inPerKgLayout2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/enter_price_inPerKgLayout1"
+                        android:layout_alignRight="@id/strut1"
+                        android:layout_alignParentLeft="true"
+                        android:ems="5"
+                        android:hint="@string/weight_of_serving"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/enter_price_inPerKgLayout2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/enter_weight_inPerKgLayout1"
+                        android:layout_alignLeft="@id/strut1"
+                        android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@id/enter_weight_inPerKgLayout2"
+                        android:ems="5"
+                        android:hint="@string/price_at_this_weight"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/enter_weight_inPerKgLayout3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/enter_price_inPerKgLayout2"
+                        android:layout_alignRight="@id/strut1"
+                        android:layout_alignParentLeft="true"
+                        android:ems="5"
+                        android:hint="@string/weight_of_serving"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/enter_price_inPerKgLayout3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/enter_weight_inPerKgLayout2"
+                        android:layout_alignLeft="@id/strut1"
+                        android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@id/enter_weight_inPerKgLayout3"
+                        android:ems="5"
+                        android:hint="@string/price_at_this_weight"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/enter_weight_inPerKgLayout4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/enter_price_inPerKgLayout3"
+                        android:layout_alignRight="@id/strut1"
+                        android:layout_alignParentLeft="true"
+                        android:ems="5"
+                        android:hint="@string/weight_of_serving"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/enter_price_inPerKgLayout4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/enter_weight_inPerKgLayout3"
+                        android:layout_alignLeft="@id/strut1"
+                        android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@id/enter_weight_inPerKgLayout4"
+                        android:ems="5"
+                        android:hint="@string/price_at_this_weight"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/enter_weight_inPerKgLayout5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/enter_price_inPerKgLayout4"
+                        android:layout_alignRight="@id/strut1"
+                        android:layout_alignParentLeft="true"
+                        android:ems="5"
+                        android:hint="@string/weight_of_serving"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/enter_price_inPerKgLayout5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/enter_weight_inPerKgLayout4"
+                        android:layout_alignLeft="@id/strut1"
+                        android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@id/enter_weight_inPerKgLayout5"
+                        android:ems="5"
+                        android:hint="@string/price_at_this_weight"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/enter_weight_inPerKgLayout6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/enter_price_inPerKgLayout5"
+                        android:layout_alignRight="@id/strut1"
+                        android:layout_alignParentLeft="true"
+                        android:ems="5"
+                        android:hint="@string/weight_of_serving"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/enter_price_inPerKgLayout6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/enter_weight_inPerKgLayout5"
+                        android:layout_alignLeft="@id/strut1"
+                        android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@id/enter_weight_inPerKgLayout6"
+                        android:ems="5"
+                        android:hint="@string/price_at_this_weight"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/enter_weight_inPerKgLayout7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/enter_price_inPerKgLayout6"
+                        android:layout_alignRight="@id/strut1"
+                        android:layout_alignParentLeft="true"
+                        android:ems="5"
+                        android:hint="@string/weight_of_serving"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/enter_price_inPerKgLayout7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/enter_weight_inPerKgLayout6"
+                        android:layout_alignLeft="@id/strut1"
+                        android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@id/enter_weight_inPerKgLayout7"
+                        android:ems="5"
+                        android:hint="@string/price_at_this_weight"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/enter_weight_inPerKgLayout8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/enter_price_inPerKgLayout7"
+                        android:layout_alignRight="@id/strut1"
+                        android:layout_alignParentLeft="true"
+                        android:ems="5"
+                        android:hint="@string/weight_of_serving"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/enter_price_inPerKgLayout8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/enter_weight_inPerKgLayout7"
+                        android:layout_alignLeft="@id/strut1"
+                        android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@id/enter_weight_inPerKgLayout8"
+                        android:ems="5"
+                        android:hint="@string/price_at_this_weight"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/enter_weight_inPerKgLayout9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/enter_price_inPerKgLayout8"
+                        android:layout_alignRight="@id/strut1"
+                        android:layout_alignParentLeft="true"
+                        android:ems="5"
+                        android:hint="@string/weight_of_serving"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/enter_price_inPerKgLayout9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/enter_weight_inPerKgLayout8"
+                        android:layout_alignLeft="@id/strut1"
+                        android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@id/enter_weight_inPerKgLayout9"
+                        android:ems="5"
+                        android:hint="@string/price_at_this_weight"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/enter_weight_inPerKgLayout10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/enter_price_inPerKgLayout9"
+                        android:layout_alignRight="@id/strut1"
+                        android:layout_alignParentLeft="true"
+                        android:ems="5"
+                        android:hint="@string/weight_of_serving"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/enter_price_inPerKgLayout10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/enter_weight_inPerKgLayout9"
+                        android:layout_alignLeft="@id/strut1"
+                        android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@id/enter_weight_inPerKgLayout10"
+                        android:ems="5"
+                        android:hint="@string/price_at_this_weight"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+
+                    <Button
+                        android:id="@+id/btn_addRow_inPerKgLayout"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/enter_price_inPerKgLayout10"
+                        android:layout_marginTop="20dp"
+                        android:layout_toRightOf="@id/enter_weight_inPerKgLayout1"
+                        android:onClick="addRowInPerKgLayout"
+                        android:text="add row"
+                        app:icon="@drawable/ic_add"
+                        app:iconPadding="4sp"
+                        app:iconSize="18sp" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/per_portion_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    tools:layout_editor_absoluteX="10dp"
+                    tools:layout_editor_absoluteY="10dp">
+
+                    <TextView
+                        android:id="@+id/full_tv_inPortionLayout"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:padding="10dp"
+                        android:text="Full : "
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/full_price_inPortionLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/full_tv_inPortionLayout"
+                        android:ems="10"
+                        android:hint="full price"
+                        android:inputType="number"
+                        android:paddingLeft="10dp" />
+
+                    <TextView
+                        android:id="@+id/half_tv_inPortionLayout"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/full_tv_inPortionLayout"
+                        android:layout_marginBottom="20dp"
+                        android:padding="10dp"
+                        android:text="Half : "
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/half_price_inPortionLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/full_tv_inPortionLayout"
+                        android:layout_toRightOf="@id/half_tv_inPortionLayout"
+                        android:ems="10"
+                        android:hint="half price"
+                        android:inputType="number"
+                        android:paddingLeft="10dp" />
+
+
+                    <View
+                        android:id="@+id/horizontal_bar1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+                        android:layout_below="@id/half_tv_inPortionLayout"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="#818181" />
+
+                    <TextView
+                        android:id="@+id/per_portion_layout_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/horizontal_bar1"
+                        android:gravity="left"
+                        android:padding="4dp"
+                        android:text="Note: Weigth is appox. weight of portion sizes and \nare optional [leave them blank]" />
+
+                    <TextView
+                        android:id="@+id/choice_large_portion"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/per_portion_layout_info"
+                        android:layout_marginBottom="20dp"
+                        android:padding="10dp"
+                        android:text="large: "
+                        android:textColor="#BD2626" />
+
+                    <EditText
+                        android:id="@+id/large_price_inPortion"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/per_portion_layout_info"
+                        android:layout_toRightOf="@id/choice_large_portion"
+                        android:hint="large price"
+                        android:inputType="number" />
+
+                    <EditText
+                        android:id="@+id/large_serve_weight_inPortion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/per_portion_layout_info"
+                        android:layout_toRightOf="@id/large_price_inPortion"
+                        android:hint="@string/weight"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/choice_medium_portion"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/choice_large_portion"
+                        android:layout_marginBottom="20dp"
+                        android:padding="10dp"
+                        android:text="medium: "
+                        android:textColor="#D88700" />
+
+                    <EditText
+                        android:id="@+id/medium_price_inPortion"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/choice_large_portion"
+                        android:layout_toRightOf="@id/choice_medium_portion"
+                        android:hint="medium price"
+                        android:inputType="number" />
+
+                    <EditText
+                        android:id="@+id/medium_serve_weight_inPortion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/choice_large_portion"
+                        android:layout_toRightOf="@id/medium_price_inPortion"
+                        android:hint="@string/weight"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/choice_small_portion"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/choice_medium_portion"
+                        android:layout_marginBottom="20dp"
+                        android:padding="10dp"
+                        android:text="small: "
+                        android:textColor="#38AC23" />
+
+                    <EditText
+                        android:id="@+id/small_price_inPortion"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/choice_medium_portion"
+                        android:layout_toRightOf="@id/choice_small_portion"
+                        android:hint="small price"
+                        android:inputType="number" />
+
+                    <EditText
+                        android:id="@+id/small_serve_weight_inPortion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/choice_medium_portion"
+                        android:layout_toRightOf="@id/small_price_inPortion"
+                        android:hint="@string/weight"
+                        android:inputType="number" />
+
+
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/btn_save_menu_item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginBottom="100dp"
+                    android:text="save" />
+
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </LinearLayout>
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
