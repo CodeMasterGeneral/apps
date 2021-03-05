@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1089304056938",
+    "firebase_url": "https://tonguetwister-10e48-default-rtdb.firebaseio.com",
+    "project_id": "tonguetwister-10e48",
+    "storage_bucket": "tonguetwister-10e48.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089304056938:android:fb981c4dbde9f5017ee613",
+        "android_client_info": {
+          "package_name": "vasu.debug.tonguetwister1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1089304056938-55rojuaffne92d58n6h1o28r6cl6hdjc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "vasu.debug.tonguetwister1",
+            "certificate_hash": "d4adda4ad35f88a13139d0d88dbb4a81e11b6b54"
+          }
+        },
+        {
+          "client_id": "1089304056938-j7lus4skbk0tgrssr5p8gm9acdju25qk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDP0s-z2A_i_9xQjIBxF5BYqhnYhP7tXjc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1089304056938-j7lus4skbk0tgrssr5p8gm9acdju25qk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
